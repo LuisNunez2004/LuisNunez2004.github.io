@@ -15,6 +15,13 @@ document.addEventListener("DOMContentLoaded", () => {
             const texto = textos[lenguaje];
             const parrafos = texto.split('\n').map(p => `<p>${p}</p>`).join('');
             document.getElementById("texto").innerHTML = `<h2>${lenguaje}</h2>${parrafos}`;
+            const textoDiv = document.getElementById("texto");
+
+            textoDiv.style.opacity = 0;
+    setTimeout(() => {
+        textoDiv.innerHTML = `<h2>${lenguaje}</h2>${parrafos}`;
+        textoDiv.style.opacity = 1;
+    }, 300);
         });
     });
     let header = document.getElementById('encabezado');
