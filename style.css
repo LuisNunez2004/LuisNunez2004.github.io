@@ -1,0 +1,47 @@
+#encabezado {
+    align-content: start;
+    text-align: center;
+    font-family: "Miltonian", serif;
+    font-size: 22px;
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+}
+
+body {
+    background-color: black;
+}
+
+.seccion {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start;        
+    gap: 20px;                      
+    padding: 20px;
+}
+
+.iconos {
+    flex: 1;                        
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: white;
+    border: 2px solid rgb(128, 128, 128);         
+}
+
+#texto {
+    flex: 2;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: white;
+    border: 2px solid rgb(128, 128, 128);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 22px; 
+    text-align: center;
+    color: black;
+}
+
+.logo {
+    width: 140px;
+    background-color: white;
+    border: 1px solid black;
+}
