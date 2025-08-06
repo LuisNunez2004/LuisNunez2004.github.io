@@ -1,31 +1,56 @@
 #encabezado {
-    align-content: start;
+    background: linear-gradient(135deg, #0F172A, #1E3A8A);
+    color: #F1F5F9;
+    padding: 60px 20px;
     text-align: center;
-    font-family: "Miltonian", serif;
-    font-size: 22px;
-    background-color: black;
-    color: white;
-    border: 2px solid white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    border-bottom: 3px solid #06B6D4;
 }
 
+#encabezado h1 {
+    font-family: "Rajdhani", sans-serif;
+    font-size: 3rem;
+    margin: 0;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+#encabezado h2 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin-top: 10px;
+    color: #A5F3FC;
+}
+
+
 body {
-    background-color: black;
+    margin: 0;
+    background-color: #0F172A;
+    font-family: "Space Grotesk", sans-serif;
+    color: #F1F5F9;
+}
+
+main {
+    max-width: 1200px;
+    margin: auto;
 }
 
 .seccion {
     display: flex;
-    justify-content: space-between; 
-    align-items: flex-start;        
-    gap: 20px;                      
-    padding: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 20px;
 }
+
 
 .iconos {
     flex: 1;                        
     padding: 10px;
     box-sizing: border-box;
     background-color: white;
-    border: 2px solid rgb(128, 128, 128);         
+    border: 2px solid #475569;         
 }
 
 #texto {
@@ -33,15 +58,53 @@ body {
     padding: 10px;
     box-sizing: border-box;
     background-color: white;
-    border: 2px solid rgb(128, 128, 128);
+    border: 2px solid #475569;
     font-family: "Space Grotesk", sans-serif;
-    font-size: 22px; 
+    font-size: 1.2rem;
     text-align: center;
     color: black;
+    transition: opacity 0.3s;
 }
 
+#texto h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #06B6D4;
+}
+
+#texto p {
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+
 .logo {
-    width: 140px;
-    background-color: white;
-    border: 1px solid black;
+    width: 100px;
+    margin: 10px;
+    transition: transform 0.3s, box-shadow 0.3s, filter 0.2s;
+    cursor: pointer;
+    filter: grayscale(100%);
+}
+
+.logo:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(6, 182, 212, 0.5);
+    filter: grayscale(0%);
+}
+
+
+@media (max-width: 768px) {
+    .seccion {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo {
+        width: 80px;
+    }
+
+    #texto {
+        font-size: 1rem;
+        text-align: left;
+    }
 }
