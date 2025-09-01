@@ -1,15 +1,40 @@
+:root{
+    --bg-900: #0F172A;
+    --accent: #06B6D4;
+    --panel: #FFFFFF;
+    --panel-border: #475569;
+    --text-dark: #0b1220;
+    --muted: #A5F3FC;
+    --max-width: 1200px;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html,body{
+    height:100%;
+    margin:0;
+    padding:0;
+    background: var(--bg-900);
+    color: #F1F5F9;
+    font-family: "Space Grotesk", sans-serif;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+
 #encabezado {
     background: linear-gradient(135deg, #0F172A, #1E3A8A);
     color: #F1F5F9;
     padding: 60px 20px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-    border-bottom: 3px solid #06B6D4;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    border-bottom: 3px solid var(--accent);
 }
 
 #encabezado h1 {
     font-family: "Rajdhani", sans-serif;
-    font-size: 3rem;
+    font-size: clamp(1.6rem, 2.6vw, 3rem);
     margin: 0;
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -17,94 +42,144 @@
 
 #encabezado h2 {
     font-family: "Space Grotesk", sans-serif;
-    font-size: 1.3rem;
+    font-size: clamp(.9rem, 1.2vw, 1.3rem);
     font-weight: 300;
     margin-top: 10px;
-    color: #A5F3FC;
-}
-
-
-body {
-    margin: 0;
-    background-color: #0F172A;
-    font-family: "Space Grotesk", sans-serif;
-    color: #F1F5F9;
+    color: var(--muted);
 }
 
 main {
-    max-width: 1200px;
-    margin: auto;
+    max-width: var(--max-width);
+    margin: 24px auto;
+    padding: 0 16px;
 }
 
 .seccion {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 20px;
+    align-items: start;
+    padding: 20px;
+}
+
+.iconos,
+#texto {
+    background-color: var(--panel);
+    border: 2px solid var(--panel-border);
+    padding: 18px;
+    border-radius: 8px;
+    color: var(--text-dark);
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.iconos {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
-    padding: 40px 20px;
-}
-
-
-.iconos {
-    flex: 1;                        
-    padding: 10px;
-    box-sizing: border-box;
-    background-color: white;
-    border: 2px solid #475569;         
+    gap: 12px;
 }
 
 #texto {
-    flex: 2;
-    padding: 10px;
-    box-sizing: border-box;
-    background-color: white;
-    border: 2px solid #475569;
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     text-align: center;
-    color: black;
-    transition: opacity 0.3s;
+    line-height: 1.6;
 }
 
 #texto h2 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     margin-bottom: 10px;
-    color: #06B6D4;
+    color: var(--accent);
 }
-
-#texto p {
-    line-height: 1.6;
-    margin-bottom: 12px;
-}
-
 
 .logo {
-    width: 100px;
-    margin: 10px;
-    transition: transform 0.3s, box-shadow 0.3s, filter 0.2s;
+    width: clamp(40px, 8vw, 100px);
+    height: auto;
+    margin: 6px;
+    transition: transform 0.25s, box-shadow 0.25s, filter 0.15s;
     cursor: pointer;
     filter: grayscale(100%);
+    border-radius: 6px;
+    background: transparent;
+    outline: none;
 }
 
-.logo:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 10px rgba(6, 182, 212, 0.5);
+.logo:hover,
+.logo:focus {
+    transform: translateY(-4px) scale(1.07);
+    box-shadow: 0 6px 18px rgba(6,182,212,0.18);
     filter: grayscale(0%);
 }
 
+.logo:focus {
+    box-shadow: 0 0 0 4px rgba(6,182,212,0.12);
+}
+
+#texto[style] {
+    transition: opacity .35s ease;
+}
 
 @media (max-width: 768px) {
-    .seccion {
-        flex-direction: column;
-        align-items: center;
+    #encabezado {
+        padding: 40px 16px;
     }
 
-    .logo {
-        width: 80px;
+    .seccion {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 12px 4px;
+    }
+
+    .iconos {
+        justify-content: center;
+        gap: 10px;
+        padding: 12px;
     }
 
     #texto {
-        font-size: 1rem;
         text-align: left;
+        font-size: 1rem;
+        padding: 14px;
     }
+
+    .logo {
+        width: clamp(36px, 10vw, 84px);
+    }
+}
+
+@media (max-width: 360px) {
+    
+    #encabezado {
+        padding: 28px 12px;
+    }
+
+    #encabezado h1 {
+        font-size: 1.4rem;
+    }
+
+    #encabezado h2 {
+        font-size: 0.86rem;
+    }
+
+    main {
+        margin: 12px auto;
+        padding: 0 10px;
+    }
+
+    .iconos,
+    #texto {
+        padding: 10px;
+    }
+
+    #texto {
+        font-size: 0.95rem;
+    }
+
+    .logo {
+        width: clamp(34px, 12vw, 72px);
+        margin: 4px;
+    }
+}
+
+@media (min-width: 1400px) {
+    main { max-width: 1100px; }
 }
